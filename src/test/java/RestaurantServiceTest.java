@@ -24,8 +24,6 @@ class RestaurantServiceTest {
     public void searching_for_existing_restaurant_should_return_expected_restaurant_object() throws restaurantNotFoundException {
 
         assertEquals(restaurant.getName(),service.findRestaurantByName("Amelie's cafe").getName());
-
-//        service.removeRestaurant("Amelie's cafe");
     }
 
     //You may watch the video by Muthukumaran on how to write exceptions in Course 3: Testing and Version control: Optional content
@@ -35,9 +33,6 @@ class RestaurantServiceTest {
         assertThrows(restaurantNotFoundException.class,()->service.findRestaurantByName("Pantry d'or"));
     }
     //<<<<<<<<<<<<<<<<<<<<SEARCHING>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-
-
 
     //>>>>>>>>>>>>>>>>>>>>>>ADMIN: ADDING & REMOVING RESTAURANTS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
