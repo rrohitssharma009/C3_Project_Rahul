@@ -6,6 +6,9 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -65,4 +68,21 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>Order Total<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    @Test
+    public void getOrderAmount_should_return_sum_of_prices_of_all_items_added_in_order(){
+
+        List<String> addedItems = Arrays.asList("Sweet corn soup","Vegetable lasagne");
+//        388 is Sum of Sweet corn soup - 119 and Vegetable lasagne - 269
+        assertEquals(388,restaurant.getOrderAmount(addedItems));
+    }
+
+    @Test
+    public void getOrderAmount_should_return_zero_if_no_items_added_in_order(){
+
+        List<String> addedItems = Collections.emptyList();
+        assertEquals(0,restaurant.getOrderAmount(addedItems));
+    }
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>Order Total<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 }
